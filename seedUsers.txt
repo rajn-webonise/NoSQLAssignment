@@ -1,0 +1,14 @@
+db.users.insert({name: "Raj Negi", email:"raj.negi@weboniselab.com", password_hash:'12345', profile_pic:'/users/raj-negi.png', super_admin:true})
+
+db.users.insert({name: "Mukul S", email:"mukul@weboniselab.com", password_hash:'12345', profile_pic:'/users/mukul.png'})
+
+db.users.insert({name: "Riya N", email:"riya@gmail.com", password_hash:'12345', profile_pic:'/users/riya.png'})
+
+db.users.insert({name: "Amy Punjabi", email:"amy@gmail.com", password_hash:'12345', profile_pic:'/users/amy.png'})
+
+db.users.insert({name: "Alpha M", email:"a@m.com", password_hash:'12345', profile_pic:'/users/a.png'})
+
+db.users.insert({name: "Goku", email:"goku@dbz.com", password_hash:'12345', profile_pic:'/users/Kakarot.png', admin: true, assigned_users:[ObjectId("57b30feb777cf30e8368163e"), ObjectId("57b30a31777cf30e8368163c")]})
+
+db.users.insert({name: "Vegeta", email:"vege@dbz.com", password_hash:'12345', profile_pic:'/users/prince.png', editor: true, assigned_users:[ObjectId("57b30feb777cf30e8368163e"), ObjectId("57b30a31777cf30e8368163c"), ObjectId("57b30a57777cf30e8368163d")]})
+

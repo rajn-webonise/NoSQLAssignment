@@ -1,0 +1,11 @@
+db.Posts.insert({title: "First Post", content:"This is the first post. By Superadmin.", img:["/img/funny.jpg"], author: "Raj Negi", author_id:ObjectId("57b309ad777cf30e8368163b"), tags:["admin"],
+comments:[{commenter_name:"Raj Negi", commenter_id:ObjectId("57b309ad777cf30e8368163b"), source_id: null, text:"Test comment by admin"}]
+})
+
+db.Posts.insert({title: "Tech Girl!", content:"I love Rails. By Riya.", img:["/img/rails.jpg"], author: "Riya N", author_id:ObjectId("57b30a57777cf30e8368163d"), tags:["tech", "rails"],
+comments:[{commenter_name:"Raj Negi", commenter_id:ObjectId("57b309ad777cf30e8368163b"), source_id: null, text:"Ruby rocks!"}]
+})
+
+Sample update query:
+db.Posts.update({"author": "Riya N"},{'$set':{'comments.1': { "commenter_name" : "Vegeta", "commenter_id" : ObjectId("57b3131cb069951d9278d019"), "source_id" : ObjectId("57b3fa259d5abccb40c43bff"), "text" : "It's true Raj.", "comment_id" : x } }})
+
