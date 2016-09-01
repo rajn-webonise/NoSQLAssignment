@@ -1,19 +1,19 @@
 
 // Users collection schema
 
-Users collection will have 4 optional fields to distinguish them from regular users.
-	 [optional] superadmin: True/False,
-    [optional] admin: True/False,
-    [optional] editor: True/False,
+Users collection will have 2 optional fields to distinguish them from regular users.
+	 [optional] role: "admin"/"superadmin"/"editor"
     [optional] users_assigned: [xxx.ID, xxx.ID,...]
 
-Here's a sample JSON data for an editor:
+Here's a sample JSON data for an editor-type user:
+
 Users {
+   _id: ObjectId() [auto-assigned]
    name:"Vegeta",
    email:"vege@dbz.com",
    password_hash:"12345",
    profile_pic:"/users/prince.png",
-   editor:true,
+   role:"editor",
    assigned_users:[
       ObjectId("57b30feb777cf30e8368163e"),
       ObjectId("57b30a31777cf30e8368163c"),
@@ -29,25 +29,32 @@ The seedUsers.txt has more examples for Users data.
 
 All fields are compulsory here, except for comments[] array. 
 
-Here's a sample JSON data for a post:
+Here's a sample JSON data for a post with a single comment:
+
 Posts {
+   _id: ObjectId() [auto-assigned]
    title:"Tech Girl!",
+	created_at: 'Thu Aug 11 2016 12:43:47 GMT+0530 (IST)'
+   updated_at: 'Thu Sep 01 2016 12:43:47 GMT+0530 (IST)'
    content:"I love Rails. By Riya.",
    img:[
       "/img/rails.jpg"
    ],
-   author:"Riya N",
-   author_id:ObjectId("57b30a57777cf30e8368163d"),
+   user:"Riya N",
+   user_id:ObjectId("57b30a57777cf30e8368163d"),
    tags:[
       "tech",
       "rails"
    ],
    comments:[
       {
-         commenter_name:"Raj Negi",
-         commenter_id:ObjectId("57b309ad777cf30e8368163b"),
-         source_id:null,
-         text:"Ruby rocks!"
+         comment_id: ObjectId() [self-assigned]
+			created_at: 'Thu Aug 11 2016 12:43:47 GMT+0530 (IST)'
+   		updated_at: 'Thu Sep 01 2016 12:43:47 GMT+0530 (IST)'
+         user_name:"Raj Negi",
+         user_id: ObjectId("57b309ad777cf30e8368163b"),
+         source_id: null,
+         text: "Ruby rocks!"
       }
    ]
 }
